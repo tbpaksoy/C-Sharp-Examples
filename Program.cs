@@ -284,6 +284,7 @@ namespace Examples
             Rectangle rectangle1 = rectangle0;
             rectangle1.Name = "Rectangle 1";
             Console.WriteLine(rectangle0.Name);
+            Console.WriteLine(rectangle1.Name);
 
             //Sınıflar atanırken referans tipi olarak atanır
             Fruit apple = new Fruit("Apple");
@@ -293,6 +294,19 @@ namespace Examples
             Console.WriteLine(apple.Name);
             Console.WriteLine(orange.Name);
 
+            //Tanımlama yöntem 1
+            Rectangle r0 = new Rectangle();
+            r0.Name = "A";
+            Rectangle r1 = new Rectangle();
+            r1.Name = "B";
+
+            //Tanımalama yöntem 2
+            Rectangle r2 = new Rectangle() { Name = "A" };
+            Rectangle r3 = new Rectangle() { Name = "B" };
+
+            //Tanımlama yöntem 3
+            Rectangle r4 = new Rectangle() { Name = "A", Width = 5f, Height = 4f };
+            Rectangle r5 = r4 with { Name = "B", Height = 6f };
         }
         public static int Sum(int a, int b)
         {
