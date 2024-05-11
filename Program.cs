@@ -172,12 +172,15 @@ namespace Examples
             //Diziler ve Koleksiyonlar
             //Dizi
             int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            numbers = new int[7];
             //Dizi elemanlarına erişim
             int num0 = numbers[0];
             int num1 = numbers[6];
             //Dizi elemanlarını değiştirme
             numbers[0] = 10;
             numbers[6] = 70;
+            numbers[numbers.Length - 1] = 5;
+            numbers[^1] = 5;
             //Dizi elemanlarını döngü ile yazdırma
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -262,6 +265,34 @@ namespace Examples
                     Console.WriteLine("Organism is not an animal or a plant");
                 }
             }
+
+            PrintNameAndSurname("John", "Doe");
+            PrintNameAndSurname("John", "Doe", 30, 5.3F);
+
+            Fruit fruit = new Fruit("Pear");
+            fruit.AddNutrient("Sugar", 10);
+            fruit.AddNutrient("Fiber", 5);
+            Console.WriteLine(fruit.SugarAmount);
+
+            Fruit banana = new Fruit("Banana");
+            Console.WriteLine(banana.WaterAmount);
+
+
+            //Yapılar kopyalanırken değer tipi olarak kopyalanır
+            Rectangle rectangle0 = new Rectangle { Name = "Rectangle 0", Width = 5, Height = 3, Color = Color.Red };
+            Console.WriteLine(rectangle0.Name);
+            Rectangle rectangle1 = rectangle0;
+            rectangle1.Name = "Rectangle 1";
+            Console.WriteLine(rectangle0.Name);
+
+            //Sınıflar atanırken referans tipi olarak atanır
+            Fruit apple = new Fruit("Apple");
+            Console.WriteLine(apple.Name);
+            Fruit orange = apple;
+            orange.Name = "Orange";
+            Console.WriteLine(apple.Name);
+            Console.WriteLine(orange.Name);
+
         }
         public static int Sum(int a, int b)
         {
@@ -290,9 +321,9 @@ namespace Examples
         {
             Console.WriteLine($"Name: {name}, Surname: {surname}");
         }
-        public static void PrintNameAndSurname(string name, string surname, int age)
+        public static void PrintNameAndSurname(string name, string surname, int age, float height = 1.75f)
         {
-            Console.WriteLine($"Name: {name}, Surname: {surname}, Age: {age}");
+            Console.WriteLine($"Name: {name}, Surname: {surname}, Age: {age}, Height: {height} m");
         }
 
     }
